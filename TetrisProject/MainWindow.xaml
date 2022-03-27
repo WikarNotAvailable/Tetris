@@ -35,7 +35,7 @@
                     Width= "250"
                     Height="500"
                     ClipToBounds="True"
-                    Loaded="GameCanvas_Loaded">
+                    Loaded="GameCanvasLoaded">
             </Canvas>
         </Viewbox>
 
@@ -82,7 +82,7 @@
               Background="#242240"
               Grid.RowSpan="2"
               Grid.ColumnSpan="3"
-              Visibility="Visible">
+              Visibility="Hidden">
 
             <StackPanel HorizontalAlignment = "Center"
                         VerticalAlignment = "Center" Width="701">
@@ -102,11 +102,14 @@
                             Width="235"
                             ValueChanged="VolumeValueChanged"/>
 
-                    <TextBox Width="26"
+                    <TextBox Width="30.5"
                              DockPanel.Dock ="Right" 
                              Height="16"
-                             Text="{Binding ElementName=slValue, 
-                             Path=Value, UpdateSourceTrigger=PropertyChanged}">
+                             TextAlignment="Center"
+                             FontSize="10"
+                             Text="{Binding ElementName=VolumeSlider, 
+                             Path=Value, UpdateSourceTrigger=PropertyChanged,
+                             StringFormat=N0}">
                     </TextBox>
                 </DockPanel>
 

@@ -51,5 +51,9 @@ namespace TetrisProject
         {
 
         }
+        private void VolumeValueChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
