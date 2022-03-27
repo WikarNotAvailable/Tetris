@@ -120,5 +120,40 @@
                         Click="GoBackClick" Width="175"/>
             </StackPanel>
         </Grid>
+
+        <Grid x:Name="RankingPanel"
+              Background="#242240"
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="3"
+              Visibility="Hidden">
+
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                <TextBlock Text="Ranking"
+                           FontSize="60"
+                           TextAlignment="Center"/>
+                <TextBlock Text="1."
+                           FontSize="40"
+                           TextAlignment="Center"/>
+                <TextBlock Text="2."
+                           FontSize="40"
+                           TextAlignment="Center"/>
+                <TextBlock Text="3."
+                           FontSize="40"
+                           TextAlignment="Center"/>
+                <TextBlock Text="4."
+                           FontSize="40"
+                           TextAlignment="Center"/>
+                <TextBlock Text="5."
+                           FontSize="40"
+                           TextAlignment="Center"/>
+                <Button Content="Back"
+                        Background="LightBlue"
+                        Margin="0,50,0,0"
+                        Padding="5"
+                        Click="GoBackClick" Width="175"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

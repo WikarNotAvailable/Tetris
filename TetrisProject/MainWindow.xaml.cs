@@ -33,10 +33,11 @@ namespace TetrisProject
         private void GoBackClick(object sender, RoutedEventArgs e)
         {
             VolumePanel.Visibility = Visibility.Hidden;
+            RankingPanel.Visibility = Visibility.Hidden;
         }
         private void RankingClick(object sender, RoutedEventArgs e)
         {
-
+            RankingPanel.Visibility = Visibility.Visible;
         }
         private void ExitClick(object sender, RoutedEventArgs e)
         {
