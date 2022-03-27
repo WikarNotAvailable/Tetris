@@ -34,5 +34,22 @@ namespace TetrisProject
         {
             VolumePanel.Visibility = Visibility.Hidden;
         }
+        private void RankingClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void ExitClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void StartGameClick(object sender, RoutedEventArgs e)
+        {
+            StartingMenu.Visibility = Visibility.Hidden;
+        }
+        private void GameCanvasLoaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
