@@ -5,8 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TetrisProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Tetris" Height="600" Width="800"
+        MinWidth="600" MinHeight="600"
+        Foreground="White"
+        FontFamily= "Comic Sans MS" FontSize="28">
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\wikar\Downloads\gradientt.jpg"/>
+        </Grid.Background>
+
+        <Viewbox Grid.Row="1"
+                 Grid.Column="1"
+                 Margin="0,20,0,20">
+            <Canvas x:Name="GameCanvas"
+                    Background="#101010"
+                    Width= "250"
+                    Height="500"
+                    ClipToBounds="True"
+                    Loaded="GameCanvas_Loaded">
+            </Canvas>
+        </Viewbox>
+
+        <Grid x:Name="StartingMenu"
+              Background="#242240"
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="3"
+              Visibility="Visible">
+
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <TextBlock Text="Tetris"
+                           FontSize="60"
+                           TextAlignment="Center"/>
+
+                <Button Content="Start Game"
+                        Background="LightBlue"
+                        Margin="0,20,0,0"
+                        Padding="5"
+                        Click="StartGameClick"/>
+
+                <Button Content="Ranking"
+                        Background="LightBlue"
+                        Margin="0,15,0,0"
+                        Padding="5"
+                        Click="RankingClick"/>
+
+                <Button Content="Volume"
+                        Background="LightBlue"
+                        Margin="0,15,0,0"
+                        Padding="5"
+                        Click="VolumeClick"/>
+
+                <Button Content="Exit Game"
+                        Background="LightBlue"
+                        Margin="0,15,0,0"
+                        Padding="5"
+                        Click="ExitClick"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

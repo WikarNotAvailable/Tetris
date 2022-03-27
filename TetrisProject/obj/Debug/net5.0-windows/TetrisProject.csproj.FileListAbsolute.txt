@@ -1,0 +1,5 @@
+C:\Users\wikar\OneDrive\Pulpit\PROGRAMOWANIE\Tetris\TetrisProject\obj\Debug\net5.0-windows\TetrisProject.csproj.AssemblyReference.cache
+C:\Users\wikar\OneDrive\Pulpit\PROGRAMOWANIE\Tetris\TetrisProject\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\wikar\OneDrive\Pulpit\PROGRAMOWANIE\Tetris\TetrisProject\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\wikar\OneDrive\Pulpit\PROGRAMOWANIE\Tetris\TetrisProject\obj\Debug\net5.0-windows\TetrisProject_MarkupCompile.cache
+C:\Users\wikar\OneDrive\Pulpit\PROGRAMOWANIE\Tetris\TetrisProject\obj\Debug\net5.0-windows\TetrisProject_MarkupCompile.lref
