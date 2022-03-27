@@ -24,5 +24,15 @@ namespace TetrisProject
         {
             InitializeComponent();
         }
+      
+        private void VolumeClick(object sender, RoutedEventArgs e)
+        {
+            VolumePanel.Visibility = Visibility.Visible;
+        }
+             
+        private void GoBackClick(object sender, RoutedEventArgs e)
+        {
+            VolumePanel.Visibility = Visibility.Hidden;
+        }
     }
 }

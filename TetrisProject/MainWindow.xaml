@@ -9,8 +9,9 @@
         MinWidth="600" MinHeight="600"
         Foreground="White"
         FontFamily= "Comic Sans MS" FontSize="28">
-    
+
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -23,7 +24,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\wikar\Downloads\gradientt.jpg"/>
+            <ImageBrush ImageSource="C:\Users\wikar\Downloads\gradient.jpg"/>
         </Grid.Background>
 
         <Viewbox Grid.Row="1"
@@ -46,6 +47,7 @@
 
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center">
+                
                 <TextBlock Text="Tetris"
                            FontSize="60"
                            TextAlignment="Center"/>
@@ -73,6 +75,46 @@
                         Margin="0,15,0,0"
                         Padding="5"
                         Click="ExitClick"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="VolumePanel"
+              Background="#242240"
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="3"
+              Visibility="Visible">
+
+            <StackPanel HorizontalAlignment = "Center"
+                        VerticalAlignment = "Center" Width="701">
+                
+                <TextBlock Text="Volume"
+                           FontSize="50"
+                           TextAlignment="Center" Width="175"/>
+                
+                <DockPanel Margin="10"
+                           Width="266">
+                    
+                    <Slider Name="VolumeSlider"
+                            Margin="0,15,0,0"
+                            Maximum="100"
+                            TickPlacement="BottomRight"
+                            TickFrequency="10"
+                            Width="235"
+                            ValueChanged="VolumeValueChanged"/>
+
+                    <TextBox Width="26"
+                             DockPanel.Dock ="Right" 
+                             Height="16"
+                             Text="{Binding ElementName=slValue, 
+                             Path=Value, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+                </DockPanel>
+
+                <Button Content="Back"
+                        Background="LightBlue"
+                        Margin="0,15,0,0"
+                        Padding="5"
+                        Click="GoBackClick" Width="175"/>
             </StackPanel>
         </Grid>
     </Grid>
