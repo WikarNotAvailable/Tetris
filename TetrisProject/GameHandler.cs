@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace TetrisProject
 {
-    class GameBoard
+    class GameHandler
     {
-        public int[,] grid = new int[22, 10];
-
-
     }
 }
