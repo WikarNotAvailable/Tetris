@@ -8,7 +8,7 @@ namespace TetrisProject
 {
     class BlockT : Block
     {
-        public override int ID => 6;
+        public override int id => 6;
 
         public override Position[][] positions => new Position[][]
         {
