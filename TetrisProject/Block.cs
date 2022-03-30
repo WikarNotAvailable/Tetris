@@ -8,7 +8,7 @@ namespace TetrisProject
 {
     abstract class Block
     {
-        public abstract int ID { get; }
+        public abstract int id { get; }
         public abstract Position[][] positions { get; }
         public Position offset;
         public int rotationState;        
@@ -18,17 +18,17 @@ namespace TetrisProject
             offset = new Position(0, 0);
             rotationState = 0;
         }
-        public void MoveLeft()
+        public void Move(int rows, int columns)
         {
-            offset.column -= 1;
+            offset.row += rows;
+            offset.column += columns;
         }
-        public void MoveRight()
+        public IEnumerable<Position> TilePositions()
         {
-            offset.column += 1;
-        }
-        public void MoveDown() // only to test, probably will be deleted later
-        {
-            offset.row += 1;
+            foreach (Position p in positions[rotationState])
+            {
+                yield return new Position(p.row + offset.row, p.column + offset.column);
+            }
         }
         public void RotateClockwise()
         {
