@@ -8,8 +8,8 @@ namespace TetrisProject
 {
     public class Position
     {
-        public int column;
-        public int row;
+        public int column { set; get; }
+        public int row { set; get; }
         public Position(int x, int y) 
         {
             column = y;
