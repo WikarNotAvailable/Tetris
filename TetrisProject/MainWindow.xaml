@@ -8,7 +8,8 @@
         Title="Tetris" Height="600" Width="800"
         MinWidth="600" MinHeight="600"
         Foreground="White"
-        FontFamily= "Comic Sans MS" FontSize="28">
+        FontFamily= "Comic Sans MS" FontSize="28"
+        KeyDown="WindowKeyDown">
 
     <Grid>
 
@@ -34,8 +35,7 @@
                     Background="#101010"
                     Width= "250"
                     Height="500"
-                    ClipToBounds="True"
-                    Loaded="GameCanvasLoaded">
+                    ClipToBounds="True">
             </Canvas>
         </Viewbox>
 
