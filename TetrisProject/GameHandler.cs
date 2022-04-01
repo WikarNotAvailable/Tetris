@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TetrisProject
 {
-    class GameHandler
+    public class GameHandler
     {
     }
 }

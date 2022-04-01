@@ -9,9 +9,9 @@ namespace TetrisProject
     abstract class Block
     {
         public abstract int id { get; }
-        public abstract Position[][] positions { get; }
-        public Position offset;
-        public int rotationState;        
+        protected abstract Position[][] positions { get; }
+        private Position offset;
+        private int rotationState;        
 
         public Block()
         {

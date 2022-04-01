@@ -8,7 +8,7 @@ namespace TetrisProject
 {
     public class GameBoard
     {
-        public int[,] grid; 
+        private int[,] grid; 
 
         public GameBoard()
         {
