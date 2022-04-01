@@ -135,6 +135,12 @@ namespace TetrisProject
                 case Key.Down:
                     block.Move(1, 0);
                     break;
+                case Key.A:
+                    block.RotateCounterClockwise();
+                    break;
+                case Key.D:
+                    block.RotateClockwise();
+                    break;
                 default:
                     return;
             }

@@ -32,11 +32,25 @@ namespace TetrisProject
         }
         public void RotateClockwise()
         {
-
+            if (rotationState != 3)
+            {
+                rotationState++;
+            }
+            else
+            {
+                rotationState = 0;
+            }
         }
         public void RotateCounterClockwise()
         {
-
+            if (rotationState != 0)
+            {
+                rotationState--;
+            }
+            else
+            {
+                rotationState = 3;
+            }
         }
 
     }
