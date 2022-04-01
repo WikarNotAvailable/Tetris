@@ -32,7 +32,7 @@ namespace TetrisProject
         }
         public void RotateClockwise()
         {
-            if (rotationState != 3)
+            if (rotationState != positions.Length-1)
             {
                 rotationState++;
             }
@@ -43,13 +43,13 @@ namespace TetrisProject
         }
         public void RotateCounterClockwise()
         {
-            if (rotationState != 0)
+            if (rotationState == 0)
             {
-                rotationState--;
+                rotationState = positions.Length-1;
             }
             else
             {
-                rotationState = 3;
+                rotationState--;
             }
         }
 

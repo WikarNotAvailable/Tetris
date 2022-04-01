@@ -34,7 +34,7 @@ namespace TetrisProject
             
         private readonly Image[,] imgCtrls;
         private GameBoard board = new GameBoard();
-        private Block block = new BlockS(); 
+        private Block block = new BlockO(); 
 
         private Image[,] SetTetrisCanvas()
         {
