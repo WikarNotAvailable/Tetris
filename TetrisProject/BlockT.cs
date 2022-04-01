@@ -12,10 +12,10 @@ namespace TetrisProject
 
         public override Position[][] positions => new Position[][]
         {
-           new Position[] {new(1,4),new(0,5),new(1,5),new(1,6)},
-           new Position[] {new(0,5),new(1,5),new(1,6),new(2,5)},
-           new Position[] {new(1,4),new(1,5),new(1,6),new(2,5)},
-           new Position[] {new(1,4),new(1,5),new(0,5),new(2,5)}
+           new Position[] {new(1,3),new(0,4),new(1,4),new(1,5)},
+           new Position[] {new(0,4),new(1,4),new(1,5),new(2,4)},
+           new Position[] {new(1,3),new(1,4),new(1,5),new(2,4)},
+           new Position[] {new(1,3),new(1,4),new(0,4),new(2,4)}
         };
     }      
 }
