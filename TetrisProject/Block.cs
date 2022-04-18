@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TetrisProject
 {
-    abstract class Block
+    public abstract class Block
     {
         public abstract int id { get; }
         protected abstract Position[][] positions { get; }
         private Position offset;
         private int rotationState;        
 
-        public Block()
+        protected Block()
         {
             offset = new Position(0, 0);
             rotationState = 0;

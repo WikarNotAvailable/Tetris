@@ -17,14 +17,9 @@ namespace TetrisProject
         {
             queue = new Queue();
             board = new GameBoard();
+            gameState = true;
             currentBlock = queue[queue.DrawID()];
             nextBlock = queue[queue.DrawID()];
         }
-        private void GameLoop()
-        {
-            
-
-        }
-       
     }
 }

@@ -10,7 +10,6 @@ namespace TetrisProject
     {
         private Random rd;
         private Block[] blocks;
-        
         public Queue()
         {
             rd = new Random();
