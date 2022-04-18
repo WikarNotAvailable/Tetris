@@ -34,7 +34,6 @@ namespace TetrisProject
             
         private readonly Image[,] imgCtrls;
         private GameHandler handler = new GameHandler();
-        private Block block = new BlockT(); 
 
         private Image[,] SetTetrisCanvas()
         {
@@ -85,7 +84,7 @@ namespace TetrisProject
             {
                 await Task.Delay(100);
                 DrawBoard(handler.board);
-                DrawBlock(block);
+                DrawBlock(handler.ReturnCurrentBlock());
             }
         }
         public MainWindow()
@@ -127,19 +126,19 @@ namespace TetrisProject
             switch (e.Key)
             {
                 case Key.Left:
-                    block.Move(0, -1);
+                    handler.MoveLeft();
                     break;
                 case Key.Right:
-                    block.Move(0, 1);
+                    handler.MoveRight();
                     break;
                 case Key.Down:
-                    block.Move(1, 0);
+                    handler.MoveDown();
                     break;
                 case Key.A:
-                    block.RotateCounterClockwise();
+                    handler.RotateCounterClockwise();
                     break;
                 case Key.D:
-                    block.RotateClockwise();
+                    handler.RotateClockwise();
                     break;
                 default:
                     return;
