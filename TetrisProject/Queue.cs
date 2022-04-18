@@ -16,6 +16,7 @@ namespace TetrisProject
             blocks = new Block[]
             {
                 new BlockI(),
+                new BlockI(),
                 new BlockJ(),
                 new BlockL(),
                 new BlockO(),
