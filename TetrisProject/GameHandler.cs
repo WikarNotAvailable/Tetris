@@ -42,7 +42,17 @@ namespace TetrisProject
         {
             currentBlock.Move(1, 0);
             if (!DoesBlockFit())
+            {
                 currentBlock.Move(-1, 0);
+                foreach (Position p in currentBlock.TilePositions())
+                {
+                    board.PlaceTile(p.row, p.column, currentBlock.id);
+                }
+                currentBlock.ResetBlock();
+                currentBlock = nextBlock;
+                nextBlock = queue[queue.DrawID()];
+            }
+
         }
         public void RotateClockwise()
         {
