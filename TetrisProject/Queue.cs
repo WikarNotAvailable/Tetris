@@ -10,10 +10,7 @@ namespace TetrisProject
     {
         private Random rd;
         private Block[] blocks;
-        private int DrawID()
-        {
-            return rd.Next(1, 8);
-        }
+        
         public Queue()
         {
             rd = new Random();
@@ -31,6 +28,10 @@ namespace TetrisProject
         public Block this[int id]
         {
             get => blocks[id];
+        }
+        public int DrawID()
+        {
+            return rd.Next(1, 8);
         }
     }
 }

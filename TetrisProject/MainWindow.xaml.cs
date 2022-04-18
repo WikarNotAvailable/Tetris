@@ -33,7 +33,7 @@ namespace TetrisProject
        };
             
         private readonly Image[,] imgCtrls;
-        private GameBoard board = new GameBoard();
+        private GameHandler handler = new GameHandler();
         private Block block = new BlockT(); 
 
         private Image[,] SetTetrisCanvas()
@@ -84,7 +84,7 @@ namespace TetrisProject
             while (true)
             {
                 await Task.Delay(100);
-                DrawBoard(board);
+                DrawBoard(handler.board);
                 DrawBlock(block);
             }
         }
