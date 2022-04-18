@@ -82,7 +82,8 @@ namespace TetrisProject
         {
             while (true)
             {
-                await Task.Delay(100);
+                await Task.Delay(300);
+                handler.MoveDown();
                 DrawBoard(handler.board);
                 DrawBlock(handler.ReturnCurrentBlock());
             }
@@ -130,9 +131,6 @@ namespace TetrisProject
                     break;
                 case Key.Right:
                     handler.MoveRight();
-                    break;
-                case Key.Down:
-                    handler.MoveDown();
                     break;
                 case Key.A:
                     handler.RotateCounterClockwise();

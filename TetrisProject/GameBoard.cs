@@ -35,7 +35,7 @@ namespace TetrisProject
         }
         public bool CanMove (int row, int column)
         {
-            if (column < 0 || column > 9 || row < 0 || row > 21)
+            if (column < 0 || column > 9 || row > 21)
                 return false;
             else if (grid[row, column] != 0)
                 return false;
