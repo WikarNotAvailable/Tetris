@@ -52,6 +52,12 @@ namespace TetrisProject
                 rotationState--;
             }
         }
-
+        //
+        public void ResetBlock()
+        {
+            offset.row = 0;
+            offset.column = 0;
+            rotationState = 0;
+        }
     }
 }
