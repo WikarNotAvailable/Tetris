@@ -69,12 +69,10 @@ namespace TetrisProject
         }
         public void MoveRows(int row, int counter)
         {
-            for(int i = row; i > 0; i--)
+            for(int j = 0; j < 10; j++)
             {
-                for(int j = 0; j < 10; j++)
-                {
-                    grid[i + counter, j] = grid[i, j];
-                }
+               grid[row + counter, j] = grid[row, j];
+               grid[row, j] = 0;
             }
         }
     }
