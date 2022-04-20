@@ -35,12 +35,47 @@ namespace TetrisProject
         }
         public bool CanMove (int row, int column)
         {
-            if (column < 0 || column > 9 || row > 21)
+            if (column < 0 || column > 9 || row > 21 || row<0)
                 return false;
             else if (grid[row, column] != 0)
                 return false;
             else
                 return true;
-        }   
+        }
+        public bool IsRowFull(int row)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                if (grid[row, i] == 0)
+                    return false;
+            }
+            return true;
+        }
+        public bool IsRowEmpty(int row)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                if (grid[row, i] != 0)
+                    return false;
+            }
+            return true;
+        }
+        public void EraseRow(int row)
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                grid[row, i] = 0;
+            }
+        }
+        public void MoveRows(int row, int counter)
+        {
+            for(int i = row; i > 0; i--)
+            {
+                for(int j = 0; j < 10; j++)
+                {
+                    grid[i + counter, j] = grid[i, j];
+                }
+            }
+        }
     }
 }

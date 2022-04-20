@@ -66,6 +66,25 @@ namespace TetrisProject
             if (!DoesBlockFit())
                 currentBlock.RotateClockwise();
         }
+        public void CheckRows()
+        {
+           int counter = 0;
+
+            for(int i = 21; i > 0; i--)
+            {
+                if (board.IsRowEmpty(i))
+                    return;
+
+                if (board.IsRowFull(i))
+                {
+                    counter++;
+                    board.EraseRow(i);
+                }
+                else if (counter !=0)
+                    board.MoveRows(i, counter);
+            }
+        }
+
         private bool DoesBlockFit()
         {
             foreach (Position p in currentBlock.TilePositions())
@@ -75,5 +94,6 @@ namespace TetrisProject
             }
             return true;
         }
+
     }
 }

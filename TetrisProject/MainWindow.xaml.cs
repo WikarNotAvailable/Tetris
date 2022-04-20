@@ -84,6 +84,7 @@ namespace TetrisProject
             {
                 await Task.Delay(300);
                 handler.MoveDown();
+                handler.CheckRows();
                 DrawBoard(handler.board);
                 DrawBlock(handler.ReturnCurrentBlock());
             }
