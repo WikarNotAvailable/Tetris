@@ -31,7 +31,19 @@ namespace TetrisProject
             new BitmapImage(new Uri("Assets\\TilePurple.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets\\TileRed.png", UriKind.Relative))
        };
-            
+
+        private readonly ImageSource[] blockImages = new ImageSource[]
+        {
+            new BitmapImage(new Uri("Assets\\TileEmpty.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets\\Block-I.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets\\Block-J.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets\\Block-L.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets\\Block-O.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets\\Block-S.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets\\Block-T.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets\\Block-Z.png", UriKind.Relative))
+        };
+
         private readonly Image[,] imgCtrls;
         private GameHandler handler; 
 
@@ -66,6 +78,10 @@ namespace TetrisProject
                 imgCtrls[p.row, p.column].Source = tileImages[block.id];
             }
         }
+        private void DrawNext(Block block)
+        {
+            NextBlock.Source = blockImages[block.id];
+        }
         private void DrawBoard(GameBoard board)
         {
             for (int r = 0; r < 22; r++)
@@ -85,8 +101,9 @@ namespace TetrisProject
                 await Task.Delay(300);
                 handler.MoveDown();
                 handler.CheckRows();
-                DrawBoard(handler.board);
+                DrawBoard(handler.ReturnGameBoard());
                 DrawBlock(handler.ReturnCurrentBlock());
+                DrawNext(handler.ReturnNextBlock());
                 Score.Text = $"Score: {handler.ReturnCurrentScore()}";
             }
         }

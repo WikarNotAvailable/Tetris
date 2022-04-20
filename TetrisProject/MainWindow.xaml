@@ -25,7 +25,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\wikar\Downloads\gradient.jpg"/>
+            <ImageBrush ImageSource="C:\Users\wikar\OneDrive\Pulpit\PROGRAMOWANIE\Tetris\TetrisProject\Assets\gradient.jpg"/>
         </Grid.Background>
 
         <Viewbox Grid.Row="1"
@@ -45,6 +45,18 @@
                    Text="Score: "
                    Margin="0,5"
                    TextAlignment="Center"/>
+        
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Next Block"
+                       TextAlignment="Center"/>
+
+            <Image x:Name="NextBlock"
+                   Margin="20"
+                   Width="125"/>
+        </StackPanel>
         
         <Grid x:Name="StartingMenu"
               Background="#242240"

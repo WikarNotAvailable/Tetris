@@ -8,8 +8,7 @@ namespace TetrisProject
 {
     public class GameHandler
     {
-        public GameBoard board;
-        public bool gameState;
+        private GameBoard board;
         private int currentScore;
         private Block currentBlock;
         private Block nextBlock;
@@ -19,7 +18,6 @@ namespace TetrisProject
         {
             queue = new Queue();
             board = new GameBoard();
-            gameState = true;
             currentScore = 0;
             currentBlock = queue[queue.DrawID()];
             nextBlock = queue[queue.DrawID()];
@@ -27,6 +25,14 @@ namespace TetrisProject
         public int ReturnCurrentScore() 
         {
             return currentScore;
+        }
+        public Block ReturnNextBlock()
+        {
+            return nextBlock;
+        }
+        public GameBoard ReturnGameBoard()
+        {
+            return board;
         }
         public Block ReturnCurrentBlock()
         {
