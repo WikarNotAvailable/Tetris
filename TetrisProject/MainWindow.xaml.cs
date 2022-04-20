@@ -33,7 +33,7 @@ namespace TetrisProject
        };
             
         private readonly Image[,] imgCtrls;
-        private GameHandler handler = new GameHandler();
+        private GameHandler handler; 
 
         private Image[,] SetTetrisCanvas()
         {
@@ -80,7 +80,7 @@ namespace TetrisProject
         }
         private async Task Game()
         {
-            while (true)
+            while (!handler.IsGameEnded())
             {
                 await Task.Delay(300);
                 handler.MoveDown();
@@ -115,8 +115,10 @@ namespace TetrisProject
         
         private async void StartGameClick(object sender, RoutedEventArgs e)
         {
+            handler = new GameHandler();
             StartingMenu.Visibility = Visibility.Hidden;
             await Game();
+            StartingMenu.Visibility = Visibility.Visible;
         }
 
         private void VolumeValueChanged(object sender, RoutedEventArgs e)

@@ -84,7 +84,10 @@ namespace TetrisProject
                     board.MoveRows(i, counter);
             }
         }
-
+        public bool IsGameEnded()
+        {
+            return !board.IsRowEmpty(1);
+        }
         private bool DoesBlockFit()
         {
             foreach (Position p in currentBlock.TilePositions())
