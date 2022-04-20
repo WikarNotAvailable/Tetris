@@ -10,6 +10,7 @@ namespace TetrisProject
     {
         public GameBoard board;
         public bool gameState;
+        private int currentScore;
         private Block currentBlock;
         private Block nextBlock;
         private Queue queue;
@@ -19,8 +20,13 @@ namespace TetrisProject
             queue = new Queue();
             board = new GameBoard();
             gameState = true;
+            currentScore = 0;
             currentBlock = queue[queue.DrawID()];
             nextBlock = queue[queue.DrawID()];
+        }
+        public int ReturnCurrentScore() 
+        {
+            return currentScore;
         }
         public Block ReturnCurrentBlock()
         {
@@ -41,6 +47,7 @@ namespace TetrisProject
         public void MoveDown()
         {
             currentBlock.Move(1, 0);
+            currentScore += 1;
             if (!DoesBlockFit())
             {
                 currentBlock.Move(-1, 0);
@@ -52,7 +59,6 @@ namespace TetrisProject
                 currentBlock = nextBlock;
                 nextBlock = queue[queue.DrawID()];
             }
-
         }
         public void RotateClockwise()
         {
@@ -73,7 +79,10 @@ namespace TetrisProject
             for(int i = 21; i > 0; i--)
             {
                 if (board.IsRowEmpty(i))
+                {
+                    currentScore +=  counter*counter*250;
                     return;
+                }
 
                 if (board.IsRowFull(i))
                 {

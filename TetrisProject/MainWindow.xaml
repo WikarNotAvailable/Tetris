@@ -38,7 +38,14 @@
                     ClipToBounds="True">
             </Canvas>
         </Viewbox>
-
+        
+        <TextBlock x:Name="Score"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Text="Score: "
+                   Margin="0,5"
+                   TextAlignment="Center"/>
+        
         <Grid x:Name="StartingMenu"
               Background="#242240"
               Grid.RowSpan="2"

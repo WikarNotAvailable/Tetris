@@ -87,6 +87,7 @@ namespace TetrisProject
                 handler.CheckRows();
                 DrawBoard(handler.board);
                 DrawBlock(handler.ReturnCurrentBlock());
+                Score.Text = $"Score: {handler.ReturnCurrentScore()}";
             }
         }
         public MainWindow()
