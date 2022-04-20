@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TetrisProject
 {
-    class BlockZ : Block
+    public class BlockZ : Block
     {
         public override int id => 7;
 

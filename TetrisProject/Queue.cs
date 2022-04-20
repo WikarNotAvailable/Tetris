@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TetrisProject
 {
-    class Queue
+    public class Queue
     {
         private Random rd;
         private Block[] blocks;
