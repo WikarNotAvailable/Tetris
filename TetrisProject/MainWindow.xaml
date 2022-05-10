@@ -57,7 +57,7 @@
                    Margin="20"
                    Width="125"/>
         </StackPanel>
-        
+
         <Grid x:Name="StartingMenu"
               Background="#242240"
               Grid.RowSpan="2"
@@ -66,7 +66,7 @@
 
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-                
+
                 <TextBlock Text="Tetris"
                            FontSize="60"
                            TextAlignment="Center"/>
@@ -96,7 +96,6 @@
                         Click="ExitClick"/>
             </StackPanel>
         </Grid>
-
         <Grid x:Name="VolumePanel"
               Background="#242240"
               Grid.RowSpan="2"
@@ -105,14 +104,14 @@
 
             <StackPanel HorizontalAlignment = "Center"
                         VerticalAlignment = "Center" Width="701">
-                
+
                 <TextBlock Text="Volume"
                            FontSize="50"
                            TextAlignment="Center" Width="175"/>
-                
+
                 <DockPanel Margin="10"
                            Width="266">
-                    
+
                     <Slider Name="VolumeSlider"
                             Margin="0,15,0,0"
                             Maximum="100"
@@ -139,7 +138,6 @@
                         Click="GoBackClick" Width="175"/>
             </StackPanel>
         </Grid>
-
         <Grid x:Name="RankingPanel"
               Background="#242240"
               Grid.RowSpan="2"
@@ -149,22 +147,22 @@
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center">
 
-                <TextBlock Text="Ranking"
+                <TextBlock Text="Ranking Top 5"
                            FontSize="60"
                            TextAlignment="Center"/>
-                <TextBlock Text="1."
+                <TextBlock x:Name="First"
                            FontSize="40"
                            TextAlignment="Center"/>
-                <TextBlock Text="2."
+                <TextBlock x:Name="Second"
                            FontSize="40"
                            TextAlignment="Center"/>
-                <TextBlock Text="3."
+                <TextBlock x:Name="Third"
                            FontSize="40"
                            TextAlignment="Center"/>
-                <TextBlock Text="4."
+                <TextBlock x:Name="Fourth"
                            FontSize="40"
                            TextAlignment="Center"/>
-                <TextBlock Text="5."
+                <TextBlock x:Name="Fifth"
                            FontSize="40"
                            TextAlignment="Center"/>
                 <Button Content="Back"
