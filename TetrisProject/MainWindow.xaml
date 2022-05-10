@@ -174,5 +174,36 @@
                         Click="GoBackClick" Width="175"/>
             </StackPanel>
         </Grid>
+        <Grid x:Name="EndGamePanel"
+              Background="#242240"
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="3"
+              Visibility="Hidden">
+
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                <TextBlock Text="You lost"
+                           FontSize="80"
+                           TextAlignment="Center"/>
+                <TextBlock x:Name="FinalScore"
+                           FontSize="60"
+                           TextAlignment="Center"/>
+                <TextBlock Text="Write your nickname (letters only)"
+                           FontSize="40"
+                           TextAlignment="Center"/>
+                <TextBox x:Name="Nickname"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         TextAlignment="Center"
+                         Foreground="White"/>
+                    
+                <Button Content="Save"
+                        Background="LightBlue"
+                        Margin="0,50,0,0"
+                        Padding="5"
+                        Click="SaveClick" Width="175"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

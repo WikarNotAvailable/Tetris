@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace TetrisProject
 {
@@ -45,7 +47,8 @@ namespace TetrisProject
         };
 
         private readonly Image[,] imgCtrls;
-        private GameHandler handler; 
+        private GameHandler handler;
+        private string path;
 
         private Image[,] SetTetrisCanvas()
         {
@@ -111,6 +114,14 @@ namespace TetrisProject
         {
             InitializeComponent();
             imgCtrls = SetTetrisCanvas();
+
+           path = Directory.GetCurrentDirectory();
+           path += "\\database.txt";
+
+            if (!File.Exists(path))
+            { 
+                StreamWriter sw = File.CreateText(path); 
+            }              
         }
         private void VolumeClick(object sender, RoutedEventArgs e)
         {
@@ -136,7 +147,22 @@ namespace TetrisProject
             handler = new GameHandler();
             StartingMenu.Visibility = Visibility.Hidden;
             await Game();
-            StartingMenu.Visibility = Visibility.Visible;
+            FinalScore.Text = $"Final Score: {handler.ReturnCurrentScore()}";
+            EndGamePanel.Visibility = Visibility.Visible;
+        }
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            Regex pattern = new Regex ( "^[A-za-z]+$" );
+
+            if (pattern.IsMatch(Nickname.Text))
+            {
+                File.AppendAllText(path, Nickname.Text + " " + handler.ReturnCurrentScore() + "\n");
+                StartingMenu.Visibility = Visibility.Visible;
+                EndGamePanel.Visibility = Visibility.Hidden;
+            }
+            else
+                MessageBox.Show("You have entered wrong nickname! Try again!", "Wrong nickname");
+            Nickname.Text = "";
         }
 
         private void VolumeValueChanged(object sender, RoutedEventArgs e)
