@@ -48,49 +48,15 @@ namespace TetrisProject
 
         private readonly Image[,] imgCtrls;
         private GameHandler handler;
-        private string path;
-        private List<User> usersScores;
-
-        private void ReadDatabase() 
-        {
-            using (StreamReader sr = new StreamReader(path))
-            {
-                string line;
-                string[] splittedStrings;
-                string nick;
-                int score;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    splittedStrings = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                    nick = splittedStrings[0];
-                    score = Convert.ToInt32(splittedStrings[1]);
-                    usersScores.Add(new User(nick, score));
-                }
-            }
-        }
-        private void SetPlaceholders()
-        {
-            int index = usersScores.Count() - 1;
-            for (int i= index; i<5; i++)
-            {
-                usersScores.Add(new User("Not ranked yet", 0));
-            }
-        }
-        private int CompareUsersByScore(User x, User y)
-        {
-            if (x.score < y.score)
-                return 1;
-            else if (x.score > y.score)
-                return -1;
-            else return 0;
-        }
+        private DatabaseManager database;
+        Regex pattern;
         private void AssignDatabaseToRanking()
         {
-            First.Text = "1. " + usersScores[0].nickname + " " + usersScores[0].score;
-            Second.Text = "2. " +  usersScores[1].nickname + " " + usersScores[1].score;
-            Third.Text = "3. " + usersScores[2].nickname + " " + usersScores[2].score;
-            Fourth.Text = "4. " + usersScores[3].nickname + " " + usersScores[3].score;
-            Fifth.Text = "5. " + usersScores[4].nickname + " " + usersScores[4].score;
+            First.Text = "1. " + database[0].nickname + " " + database[0].score;
+            Second.Text = "2. " + database[1].nickname + " " + database[1].score;
+            Third.Text = "3. " + database[2].nickname + " " + database[2].score;
+            Fourth.Text = "4. " + database[3].nickname + " " + database[3].score;
+            Fifth.Text = "5. " + database[4].nickname + " " + database[4].score;
         }
         private Image[,] SetTetrisCanvas()
         {
@@ -156,23 +122,10 @@ namespace TetrisProject
         {
             InitializeComponent();
             imgCtrls = SetTetrisCanvas();
-            usersScores = new List<User>();
-
-            path = Directory.GetCurrentDirectory();
-            path += "\\database.txt";
-
-            if (!File.Exists(path))
-            { 
-                StreamWriter sw = File.CreateText(path); 
-            }
-            else
-            {
-                ReadDatabase();
-                usersScores.Sort(CompareUsersByScore);
-                SetPlaceholders();
-                AssignDatabaseToRanking();
-            }
-                
+            database = new DatabaseManager();
+            database.ReadFromDatabase();
+            AssignDatabaseToRanking();
+            pattern = new Regex("^[A-za-z]+$");
         }
         private void VolumeClick(object sender, RoutedEventArgs e)
         {
@@ -203,13 +156,9 @@ namespace TetrisProject
         }
         private void SaveClick(object sender, RoutedEventArgs e)
         {
-            Regex pattern = new Regex ( "^[A-za-z]+$" );
-
             if (pattern.IsMatch(Nickname.Text))
             {
-                File.AppendAllText(path, Nickname.Text + " " + handler.ReturnCurrentScore() + "\n");
-                usersScores.Add(new User(Nickname.Text, handler.ReturnCurrentScore()));
-                usersScores.Sort(CompareUsersByScore);
+                database.UploadDatabase(Nickname.Text, handler.ReturnCurrentScore());
                 AssignDatabaseToRanking();
                 StartingMenu.Visibility = Visibility.Visible;
                 EndGamePanel.Visibility = Visibility.Hidden;
@@ -218,7 +167,6 @@ namespace TetrisProject
                 MessageBox.Show("You have entered wrong nickname! Try again!", "Wrong nickname");
             Nickname.Text = "";
         }
-
         private void VolumeValueChanged(object sender, RoutedEventArgs e)
         {
 
