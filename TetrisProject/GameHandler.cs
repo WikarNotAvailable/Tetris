@@ -66,6 +66,36 @@ namespace TetrisProject
                 nextBlock = queue[queue.DrawID()];
             }
         }
+        public int CalculateDistance()
+        {
+            int distance = 0;
+
+            if (!DoesBlockFit())
+            {
+                return distance;
+            }
+            while (DoesBlockFit())
+            {
+                currentBlock.Move(1, 0);
+                distance++;
+            }
+            currentBlock.Move(-distance, 0);
+            distance--;
+            return distance;
+        }
+        public void HardDrop(int distance)
+        {
+            currentBlock.Move(distance, 0);
+
+            foreach (Position p in currentBlock.TilePositions())
+            {
+                board.PlaceTile(p.row, p.column, currentBlock.id);
+            }
+            currentBlock.ResetBlock();
+            currentBlock = nextBlock;
+            nextBlock = queue[queue.DrawID()];
+        }
+
         public void RotateClockwise()
         {
             currentBlock.RotateClockwise();

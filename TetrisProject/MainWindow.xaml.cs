@@ -105,6 +105,14 @@ namespace TetrisProject
                 imgCtrls[p.row, p.column].Source = tileImages[block.id];
             }
         }
+        private void DrawGhostBlock(Block block, int distance)
+        {
+            foreach (Position p in block.TilePositions())
+            {
+                imgCtrls[p.row+distance, p.column].Opacity = 0.25;
+                imgCtrls[p.row+distance, p.column].Source = tileImages[block.id];
+            }
+        }
         private void DrawNext(Block block)
         {
             NextBlock.Source = blockImages[block.id];
@@ -128,7 +136,9 @@ namespace TetrisProject
                 await Task.Delay(300);
                 handler.MoveDown();
                 handler.CheckRows();
+
                 DrawBoard(handler.ReturnGameBoard());
+                DrawGhostBlock(handler.ReturnCurrentBlock(), handler.CalculateDistance());
                 DrawBlock(handler.ReturnCurrentBlock());
                 DrawNext(handler.ReturnNextBlock());
                 Score.Text = $"Score: {handler.ReturnCurrentScore()}";
@@ -197,6 +207,9 @@ namespace TetrisProject
                     break;
                 case Key.Right:
                     handler.MoveRight();
+                    break;
+                case Key.Down:
+                    handler.HardDrop(handler.CalculateDistance());
                     break;
                 case Key.A:
                     handler.RotateCounterClockwise();
