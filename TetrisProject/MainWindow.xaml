@@ -112,7 +112,7 @@
                 <DockPanel Margin="10"
                            Width="266">
 
-                    <Slider Name="VolumeSlider"
+                    <Slider x:Name="VolumeSlider"
                             Margin="0,15,0,0"
                             Maximum="100"
                             TickPlacement="BottomRight"

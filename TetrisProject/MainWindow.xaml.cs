@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Media;
 
 namespace TetrisProject
 {
@@ -50,6 +51,7 @@ namespace TetrisProject
         private GameHandler handler;
         private DatabaseManager database;
         Regex pattern;
+        MediaElement medi;
         private void AssignDatabaseToRanking()
         {
             First.Text = "1. " + database[0].nickname + " " + database[0].score;
@@ -57,6 +59,20 @@ namespace TetrisProject
             Third.Text = "3. " + database[2].nickname + " " + database[2].score;
             Fourth.Text = "4. " + database[3].nickname + " " + database[3].score;
             Fifth.Text = "5. " + database[4].nickname + " " + database[4].score;
+        }
+        private void PlayMusic()
+        {
+            medi = new MediaElement();
+            medi.LoadedBehavior = MediaState.Play;
+            medi.UnloadedBehavior = MediaState.Manual;
+            medi.Source = new Uri("C:\\Users\\wikar\\OneDrive\\Pulpit\\PROGRAMOWANIE\\Tetris\\TetrisProject\\Assets\\tet.wav");
+            medi.MediaEnded += new System.Windows.RoutedEventHandler(medi_MediaEnded);
+            medi.Play();
+        }
+        public void medi_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            medi.Position = TimeSpan.Zero;
+            medi.Play();
         }
         private Image[,] SetTetrisCanvas()
         {
@@ -126,6 +142,7 @@ namespace TetrisProject
             database.ReadFromDatabase();
             AssignDatabaseToRanking();
             pattern = new Regex("^[A-za-z]+$");
+            PlayMusic();
         }
         private void VolumeClick(object sender, RoutedEventArgs e)
         {
@@ -169,7 +186,7 @@ namespace TetrisProject
         }
         private void VolumeValueChanged(object sender, RoutedEventArgs e)
         {
-
+            medi.Volume = VolumeSlider.Value / 100.0f;
         }
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
