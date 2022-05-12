@@ -50,8 +50,8 @@ namespace TetrisProject
         private readonly Image[,] imgCtrls;
         private GameHandler handler;
         private DatabaseManager database;
-        Regex pattern;
-        MediaElement medi;
+        private Regex pattern;
+        private MediaElement medi;
         private void AssignDatabaseToRanking()
         {
             First.Text = "1. " + database[0].nickname + " " + database[0].score;
@@ -136,7 +136,6 @@ namespace TetrisProject
                 await Task.Delay(300);
                 handler.MoveDown();
                 handler.CheckRows();
-
                 DrawBoard(handler.ReturnGameBoard());
                 DrawGhostBlock(handler.ReturnCurrentBlock(), handler.CalculateDistance());
                 DrawBlock(handler.ReturnCurrentBlock());
@@ -147,11 +146,12 @@ namespace TetrisProject
         public MainWindow()
         {
             InitializeComponent();
-            imgCtrls = SetTetrisCanvas();
             database = new DatabaseManager();
+            pattern = new Regex("^[A-za-z]+$");
+            imgCtrls = SetTetrisCanvas();
             database.ReadFromDatabase();
             AssignDatabaseToRanking();
-            pattern = new Regex("^[A-za-z]+$");
+
             PlayMusic();
         }
         private void VolumeClick(object sender, RoutedEventArgs e)
