@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TetrisProject
 {
-    public struct User
+    public class User
     {
         public string nickname;
         public int score { get; }
